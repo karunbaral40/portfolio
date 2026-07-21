@@ -1,5 +1,5 @@
 /* =====================================
-   1. PAGE LOADER
+   1. PAGE PRE-LOADER SCREEN
 ===================================== */
 window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
@@ -12,7 +12,7 @@ window.addEventListener('load', () => {
 });
 
 /* =====================================
-   2. SCROLL EFFECT (HEADER & NAV LINKS)
+   2. STICKY NAV & ACTIVE NAVIGATION LINKS
 ===================================== */
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
@@ -22,15 +22,14 @@ window.addEventListener('scroll', () => {
         nav.classList.remove('scrolled');
     }
 
-    // Scroll Spy (Active nav link updating)
+    // Scroll spy active link calculations
     let current = "";
     const sections = document.querySelectorAll('section');
     const navItems = document.querySelectorAll('.nav-links a');
 
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 150) {
+        if (window.scrollY >= sectionTop - 150) {
             current = section.getAttribute('id');
         }
     });
@@ -41,41 +40,60 @@ window.addEventListener('scroll', () => {
             item.classList.add('active');
         }
     });
-});
+}, { passive: true });
 
 /* =====================================
-   3. MOBILE NAVIGATION MENU
+   3. RESPONSIVE MOBILE NAVIGATION PANEL
 ===================================== */
 const menuBtn = document.getElementById('mobile-menu');
-const navLinks = document.querySelector('.nav-links');
+const navLinks = document.getElementById('nav-links');
 
 if (menuBtn && navLinks) {
-    menuBtn.addEventListener('click', () => {
-        menuBtn.classList.toggle('active');
-        navLinks.classList.toggle('active');
+    const toggleMenu = (open) => {
+        const isOpen = open !== undefined ? open : !navLinks.classList.contains('active');
+        
+        menuBtn.classList.toggle('active', isOpen);
+        navLinks.classList.toggle('active', isOpen);
+        
+        // Accessibility (Aria) tags update
+        menuBtn.setAttribute('aria-expanded', isOpen);
+        
+        // Prevent background layout scrolling on mobile
+        document.body.classList.toggle('no-scroll', isOpen);
+    };
+
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
     });
 
-    // Close menu when links are clicked
+    // Close menu when navigation link is clicked
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            menuBtn.classList.remove('active');
+            toggleMenu(false);
         });
     });
 
-    // Close menu when clicking outside
+    // Close menu when clicking outside of the active panel
     document.addEventListener('click', (e) => {
         if (
             navLinks.classList.contains('active') &&
             !navLinks.contains(e.target) &&
             !menuBtn.contains(e.target)
         ) {
-            navLinks.classList.remove('active');
-            menuBtn.classList.remove('active');
+            toggleMenu(false);
         }
     });
 
-    // Mobile swipe close support
+    // Keyboard support - close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+            toggleMenu(false);
+            menuBtn.focus(); // Returns keyboard focus to toggle
+        }
+    });
+
+    // Mobile Swipe closing gesture
     let startX = 0;
     let endX = 0;
 
@@ -88,27 +106,25 @@ if (menuBtn && navLinks) {
     }, { passive: true });
 
     navLinks.addEventListener("touchend", () => {
-        if (startX - endX > 50) {
-            navLinks.classList.remove("active");
-            menuBtn.classList.remove("active");
+        if (startX - endX > 50 && navLinks.classList.contains('active')) {
+            toggleMenu(false);
         }
     });
 }
 
 /* =====================================
-   4. SCROLL REVEAL (INTERSECTION OBSERVER)
+   4. INTERSECTION OBSERVER SCROLL REVEALS
 ===================================== */
 const observerOptions = {
-    threshold: 0.15,
-    rootMargin: "0px 0px -50px 0px"
+    threshold: 0.1,
+    rootMargin: "0px 0px -40px 0px"
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
-            // Unobserve once animation plays to lock active state
-            observer.unobserve(entry.target);
+            observer.unobserve(entry.target); // Unobserve to lock animate state
         }
     });
 }, observerOptions);

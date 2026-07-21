@@ -35,11 +35,11 @@
             <img src="Gemini_Generated_Image_kydofqkydofqkydo.png" alt="karunbaral." class="nav-logo">
         </div>
 
-        <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu">
+        <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
             <span></span><span></span><span></span>
         </button>
 
-        <ul class="nav-links">
+        <ul class="nav-links" id="nav-links">
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -54,7 +54,7 @@
         <section id="home" class="hero">
             <div class="hero-content">
                 <div class="hero-badge-container">
-                    <span class="badge badge-availability"><i class="fa-solid fa-circle-check"></i> Available for Java Backend Internships</span>
+                    <span class="badge badge-availability"><i class="fa-solid fa-graduation-cap"></i> BCA Student</span>
                 </div>
                 <h1>Karun Baral</h1>
                 <div class="typewriter-container">
@@ -68,7 +68,7 @@
             </div>
             <div class="hero-img">
                 <div class="img-box">
-                    <img src="Gemini_Generated_Image_nbbjd3nbbjd3nbbj.png" alt="Karun Baral Portrait Photo">
+                    <img src="Gemini_Generated_Image_nbbjd3nbbjd3nbbj.png" alt="Karun Baral Portrait Photo" fetchpriority="high">
                 </div>
             </div>
         </section>
@@ -80,23 +80,23 @@
                 <p>I am a pursuing Bachelor of Computer Applications (BCA) student at Everest College, Tribhuvan University. My passion lies in designing layered architectures, logical databases, and robust backends with Spring Boot. I focus on developing clean, well-tested REST APIs that solve real-world problems.</p>
                 <p>Beyond coding, I'm a continuous learner. I am currently learning advanced backend security concepts like Spring Security, and exploring the Linux environment (Kali Linux) to understand systems administration and deployment architectures.</p>
                 
-                <div class="education-box" style="margin-bottom: 25px;">
+                <div class="education-box">
                     <i class="fa-solid fa-graduation-cap"></i>
                     <span class="education-text">Education: <span>BCA (4th Semester | Expected 2028)</span> | Everest College, Tribhuvan University</span>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; margin-top: 15px;">
-                    <div style="background: rgba(255, 255, 255, 0.01); border: 1px solid var(--card-border); padding: 15px 20px; border-radius: 12px;">
-                        <h4 style="color: var(--main-color); margin-bottom: 8px; font-size: 0.95rem; font-weight: 700;"><i class="fa-solid fa-language"></i> Languages</h4>
-                        <p style="font-size: 0.85rem; color: var(--gray-text); line-height: 1.5; margin-bottom: 0;">
+                <div class="about-meta-grid">
+                    <div class="meta-box languages">
+                        <h4><i class="fa-solid fa-language"></i> Languages</h4>
+                        <p>
                             Nepali (Native)<br>
                             English (Working Proficiency)<br>
                             Hindi (Conversational)
                         </p>
                     </div>
-                    <div style="background: rgba(255, 255, 255, 0.01); border: 1px solid var(--card-border); padding: 15px 20px; border-radius: 12px;">
-                        <h4 style="color: var(--secondary-color); margin-bottom: 8px; font-size: 0.95rem; font-weight: 700;"><i class="fa-solid fa-heart"></i> Interests</h4>
-                        <p style="font-size: 0.85rem; color: var(--gray-text); line-height: 1.5; margin-bottom: 0;">
+                    <div class="meta-box interests">
+                        <h4><i class="fa-solid fa-heart"></i> Interests</h4>
+                        <p>
                             Coding & Technology<br>
                             Reading & Gaming<br>
                             Music & Manhwa
@@ -114,54 +114,58 @@
             <div class="skills-grid">
                 <div class="card skill-card">
                     <h3 class="skill-category-title"><i class="fa-solid fa-code"></i> Core & Systems</h3>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Java (Core & OOP)</span><span>65%</span></div>
-                        <div class="progress-line"><span style="width: 65%;"></span></div>
+                    <div class="skill-card-body">
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Java (Core & OOP)</span><span>65%</span></div>
+                            <div class="progress-line"><span style="width: 65%;"></span></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>C Programming</span><span>80%</span></div>
+                            <div class="progress-line"><span style="width: 80%;"></span></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>SQL / Database Queries</span><span>60%</span></div>
+                            <div class="progress-line"><span style="width: 60%;"></span></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>JavaScript / Web Basic</span><span>25%</span></div>
+                            <div class="progress-line"><span style="width: 25%;"></span></div>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>C Programming</span><span>80%</span></div>
-                        <div class="progress-line"><span style="width: 80%;"></span></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>SQL / Database Queries</span><span>60%</span></div>
-                        <div class="progress-line"><span style="width: 60%;"></span></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>JavaScript / Web Basic</span><span>25%</span></div>
-                        <div class="progress-line"><span style="width: 25%;"></span></div>
-                    </div>
-                    <div style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 8px;">
-                        <span class="badge badge-outline" style="font-size: 0.7rem;">PHP</span>
-                        <span class="badge badge-outline" style="font-size: 0.7rem;">HTML5/CSS3</span>
-                        <span class="badge badge-outline" style="font-size: 0.7rem;">Linux (Kali)</span>
-                        <span class="badge badge-outline" style="font-size: 0.7rem;">Windows</span>
+                    <div style="margin-top: auto; padding-top: 15px; display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span class="badge badge-outline">PHP</span>
+                        <span class="badge badge-outline">HTML5/CSS3</span>
+                        <span class="badge badge-outline">Linux (Kali)</span>
+                        <span class="badge badge-outline">Windows</span>
                     </div>
                 </div>
 
                 <div class="card skill-card">
                     <h3 class="skill-category-title"><i class="fa-solid fa-server"></i> Backend & Database</h3>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Spring Boot / MVC</span><span>55%</span></div>
-                        <div class="progress-line"><span style="width: 55%;"></span></div>
+                    <div class="skill-card-body">
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Spring Boot / MVC</span><span>55%</span></div>
+                            <div class="progress-line"><span style="width: 55%;"></span></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Spring Data JPA / Hibernate</span><span>50%</span></div>
+                            <div class="progress-line"><span style="width: 50%;"></span></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>REST API Development</span><span>65%</span></div>
+                            <div class="progress-line"><span style="width: 65%;"></span></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Build & Tools (Git/Maven)</span><span>75%</span></div>
+                            <div class="progress-line"><span style="width: 75%;"></span></div>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Spring Data JPA / Hibernate</span><span>50%</span></div>
-                        <div class="progress-line"><span style="width: 50%;"></span></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>REST API Development</span><span>65%</span></div>
-                        <div class="progress-line"><span style="width: 65%;"></span></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info"><span>Build & Tools (Git/Maven)</span><span>75%</span></div>
-                        <div class="progress-line"><span style="width: 75%;"></span></div>
-                    </div>
-                    <div style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 8px;">
-                        <span class="badge badge-tech" style="font-size: 0.7rem;">MySQL</span>
-                        <span class="badge badge-tech" style="font-size: 0.7rem;">JDBC</span>
-                        <span class="badge badge-tech" style="font-size: 0.7rem;">DTO Pattern</span>
-                        <span class="badge badge-tech" style="font-size: 0.7rem;">JWT Auth</span>
-                        <span class="badge badge-tech" style="font-size: 0.7rem;">Spring Security (Learning)</span>
+                    <div style="margin-top: auto; padding-top: 15px; display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span class="badge badge-tech">MySQL</span>
+                        <span class="badge badge-tech">JDBC</span>
+                        <span class="badge badge-tech">DTO Pattern</span>
+                        <span class="badge badge-tech">JWT Auth</span>
+                        <span class="badge badge-tech">Spring Security (Learning)</span>
                     </div>
                 </div>
             </div>
@@ -214,13 +218,13 @@
                 <div class="card project-card featured">
                     <div class="featured-img-container">
                         <span class="featured-label">Featured Project</span>
-                        <img src="Gemini_Generated_Image_tebrcqtebrcqtebr.png" alt="Hospital Management System conceptual visualization">
+                        <img src="Gemini_Generated_Image_tebrcqtebrcqtebr.png" alt="Hospital Management System conceptual visualization" loading="lazy">
                     </div>
                     <div class="project-info">
                         <span class="badge badge-java" style="align-self: flex-start; margin-bottom: 10px;"><i class="fa-solid fa-star"></i> Featured</span>
                         <h3>Hospital Management System</h3>
                         <p>A secure layered backend architecture built with Spring Boot and Spring MVC for managing patient records, appointments, and staff data.</p>
-                        <ul style="color: var(--gray-text); font-size: 0.85rem; line-height: 1.5; margin-bottom: 20px; padding-left: 20px; list-style-type: disc;">
+                        <ul class="project-bullets">
                             <li>Designed a layered backend architecture for managing patient records, appointments, and staff data</li>
                             <li>Built and exposed RESTful CRUD APIs using Spring Boot and Spring MVC</li>
                             <li>Integrated MySQL with Spring Data JPA/Hibernate for reliable data persistence</li>
@@ -244,7 +248,7 @@
                 <div class="card project-card">
                     <h3>Student Management System</h3>
                     <p>A CRUD-based student record management backend built with Spring Boot and Spring Data JPA, connected to a MySQL database.</p>
-                    <ul style="color: var(--gray-text); font-size: 0.85rem; line-height: 1.5; margin-bottom: 20px; padding-left: 20px; list-style-type: disc;">
+                    <ul class="project-bullets">
                         <li>Developed CRUD REST APIs for managing student records using Spring Boot and Spring Data JPA</li>
                         <li>Connected the application to a MySQL database for persistent storage</li>
                         <li>Built and managed the project using Maven; verified endpoints with Postman</li>
@@ -273,7 +277,7 @@
                 <!-- Project 4: Guess The Number -->
                 <div class="card project-card">
                     <h3>Guess The Number</h3>
-                    <p>A logic game built with Java focusing on loops, control flow statement routing, and randomizers for terminal interactions.</p>
+                    <p>A logic game built with Java focusing on loops, control flow routing, and randomizers for terminal interactions.</p>
                     <div class="project-tech-stack">
                         <span class="badge badge-outline">Java</span>
                         <span class="badge badge-outline">CLI</span>
